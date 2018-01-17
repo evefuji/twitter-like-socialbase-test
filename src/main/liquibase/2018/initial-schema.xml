@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+
+	<changeSet author="everton.fujimoto" id="1">
+		<createTable tableName="system_user"
+			remarks="armazena os usu&#225;rios. Na primeira vers&#227;o mant&#233;m somente os dados do STS">
+			<column name="id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="uuid" type="VARCHAR(128)" remarks="uuid do usuario">
+				<constraints nullable="false" />
+			</column>
+			<column name="created_at" type="TIMESTAMP" remarks="data hora e cria&#231;&#227;o">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey tableName="system_user" constraintName="system_user_pk"
+			columnNames="id" />
+		<createSequence sequenceName="system_user_seq" />
+
+		<createIndex tableName="system_user" indexName="system_user_idx"
+			unique="true">
+			<column name="uuid" />
+		</createIndex>
+
+		<createTable tableName="message" remarks="Armazena as mensagens">
+			<column name="id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="user_id" type="BIGINT"
+				remarks="id do usuario na tabela de usuarios">
+				<constraints nullable="false" />
+			</column>
+			<column name="message" type="VARCHAR(140)" remarks="mensagem armazenada">
+				<constraints nullable="false" />
+			</column>
+			<column name="created_at" type="TIMESTAMP" remarks="data hora e cria&#231;&#227;o">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey tableName="message" constraintName="message_pk"
+			columnNames="id" />
+		<createSequence sequenceName="message_seq" />
+
+		<createIndex tableName="message" indexName="message_idx">
+			<column name="created_at" />
+		</createIndex>
+		
+		<addForeignKeyConstraint baseTableName="message"
+			constraintName="system_user_message_fk" baseColumnNames="user_id"
+			referencedTableName="system_user" referencedColumnNames="id" />
+	</changeSet>
+
+</databaseChangeLog>
