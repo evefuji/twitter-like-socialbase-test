@@ -97,7 +97,7 @@ Utiliza-se versionamento por URL, ex:
 
 [http://localhost:8080/twitterLike-1.0.0/](http://localhost:8080/twitterLike-1.0.0/) é a versão 1.0.0 final.  
 
-# Melhorias futuras (Infelizmente não deu tempo)
+# Melhorias futuras 
 * Utilizar ElasticSearch para pesquisas de texto: [https://www.elastic.co/guide/en/elasticsearch/reference/current/windows.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/windows.html)
 
 * Adicionar HATEOAS nas mensagens
