@@ -90,11 +90,22 @@ Acrescente ao standalone.xml (após a seção extensions):
 Utiliza-se versionamento por URL, ex: 
 
 [http://localhost:8080/twitterLike/](http://localhost:8080/twitterLike/) é a versão mais atual.
+
+
 [http://localhost:8080/twitterLike-0.0.1-SNAPSHOT/](http://localhost:8080/twitterLike-0.0.1-SNAPSHOT/) é a versão 0.0.1-SNAPSHOT (não final).
+
+
 [http://localhost:8080/twitterLike-1.0.0/](http://localhost:8080/twitterLike-1.0.0/) é a versão 1.0.0 final.  
 
 # Melhorias futuras (Infelizmente não deu tempo)
 * Utilizar ElasticSearch para pesquisas de texto: [https://www.elastic.co/guide/en/elasticsearch/reference/current/windows.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/windows.html)
-* Adicionar HATEOAS nas mensagens 
+
+* Adicionar HATEOAS nas mensagens
+ 
 * Criar jobs no Jenkins para compilar e implantar (necessita servidor)
+
 * Adicionar testes automatizados com o Arquillian 
+
+* Enriquecer Javadoc
+
+* Implementar frontend com tecnologias mais robustas, que forneçam mais recursos
